@@ -17,35 +17,144 @@
 
     <script type="text/javascript" src="/assets/js/app.js"></script>
 </head>
-<body class="text-slate-100 font-light text-lg" x-data>
-    <div class="px-4">
+<body class="text-slate-100 font-light" x-data>
+    <div class="px-4 pb-24">
         <div class="mx-auto max-w-4xl py-12">
             <h1 class="text-5xl font-thin text-center tracking-wider">
                 Jonathan Itzen
             </h1>
     
-            <div class="mt-24 space-y-2 [&>*]:cursor-grab" x-sort>
-                <h4>Hello 👋</h4>
+            <div class="mt-24 space-y-2 md:text-lg">
+                <h4 class="text-2xl">Hello 👋</h4>
     
                 <p>Welcome to my website</p>
     
                 <p>I'm a Full Stack Web Developer with a focus on Laravel but work with all things related to the web</p>
     
 
-                <div class="flex flex-col items-end md:flex-row py-2">
+                <div class="py-2 max-w-96 mx-auto text-center">
                     <img
                     src="/assets/images/me.jpg"
                     alt="Image of me with dog"
-                    class="size-40 rounded-full block"
+                    class="size-40 rounded-full block mx-auto"
                     >
 
-                    <p class="text-sm font-medium tracking-wide text-slate-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline -mt-1 rotate-[120deg] md:rotate-[40deg]">
+                    <p class="text-xs font-medium tracking-wide text-slate-300 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline -mt-1 rotate-[130deg]">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                         </svg>                          
                         Here's an image of me with a dog
                     </p>
                 </div>
+            </div>
+
+            <div class="mt-24">
+                <h4 class="text-2xl">Here's my skills</h4>
+
+                <ul class="[&>*]:cursor-grab hidden md:grid grid-cols-3 gap-x-6 gap-y-2 text-base mt-2" x-sort>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        Laravel
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        MySQL
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        Salesforce Commerce Cloud
+                    </li>
+                    
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        Livewire
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        JavaScript / jQuery
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        HTML / CSS / SASS / TailwindCSS
+                    </li>
+                    
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        PHP
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        NextJS / React
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        SEO
+                    </li>
+                    
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        WordPress
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        NodeJS
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+
+                        VS Code
+                    </li>
+                </ul>
+
+                <ul class="[&>*]:cursor-grab md:hidden text-base mt-2" x-sort>
+                    <li>Laravel</li>
+                    <li>Livewire</li>
+                    <li>PHP</li>
+                    <li>WordPress</li>
+                    <li>JavaScript/jQuery</li>
+                    <li>NextJS/React</li>
+                    <li>MySQL</li>
+                    <li>NodeJS</li>
+                    <li>Salesforce Commerce Cloud</li>
+                    <li>HTML/CSS/SASS/TailwindCSS</li>
+                    <li>SEO</li>
+                    <li>VS Code</li>
+                </ul>
             </div>
         </div>
     </div>
