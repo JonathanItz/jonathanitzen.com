@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="font-sans bg-slate-800">
+<html
+lang="en"
+class="font-sans bg-slate-100 dark:bg-slate-800"
+x-data="{
+    darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system')}"
+    x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
+    x-bind:class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
+>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +14,9 @@
 
     <link rel="stylesheet" href="/assets/css/app.css">
 
+    <meta name="keywords" content="Jonathan Itzen">
+    <meta name="author" content="Jonathan Itzen">
+    <meta name="description" content="Website for Jonathan Itzen. Home of the best devs 😎">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +27,30 @@
 
     <script type="text/javascript" src="/assets/js/app.js"></script>
 </head>
-<body class="text-slate-100 font-light" x-data>
+<body class="text-slate-800 dark:text-slate-100 font-light" x-data>
+    <div class="absolute right-2 top-2">
+        <button x-on:click="darkMode = 'light'" x-show="darkMode === 'dark'">
+            <svg xmlns="http://www.w3.org/2000/svg"
+            x-bind:class="{'border-2 border-red/50': darkMode === 'light'}"
+            class="w-6 h-6 p-1 text-gray-700 transition rounded-full cursor-pointer bg-gray-50 hover:bg-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <span class="sr-only">light</span>
+        </button>
+        
+    
+        <button x-on:click="darkMode = 'dark'" x-show="darkMode === 'light'">
+            <svg xmlns="http://www.w3.org/2000/svg"
+            x-bind:class="{'border-2 border-red/50': darkMode === 'dark'}"
+            class="w-6 h-6 p-1 text-gray-100 transition bg-gray-700 rounded-full cursor-pointer dark:hover:bg-gray-600" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+            </svg>
+            <span class="sr-only">dark</span>
+        </button>
+    </div>
+
     <div class="px-4 pb-24">
-        <div class="mx-auto max-w-4xl py-12">
+        <section class="mx-auto max-w-4xl pt-12">
             <h1 class="text-5xl font-thin text-center tracking-wider">
                 Jonathan Itzen
             </h1>
@@ -36,10 +67,10 @@
                     <img
                     src="/assets/images/me.jpg"
                     alt="Image of me with dog"
-                    class="size-40 rounded-full block mx-auto"
+                    class="size-40 rounded-full block mx-auto shadow-xl"
                     >
 
-                    <p class="text-xs font-medium tracking-wide text-slate-300 mt-1">
+                    <p class="text-xs font-medium tracking-wide text-slate-500 dark:text-slate-300 mt-1">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline -mt-1 rotate-[130deg]">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                         </svg>                          
@@ -47,139 +78,139 @@
                     </p>
                 </div>
             </div>
+        </section>
 
-            <div class="mt-24">
-                <h4 class="text-2xl">Here's my skills</h4>
+        <section class="mx-auto max-w-4xl mt-24">
+            <h4 class="text-2xl">Here's my skills</h4>
 
-                <ul class="[&>*]:cursor-grab hidden md:grid grid-cols-3 gap-x-6 gap-y-2 text-base mt-2" x-sort>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+            <ul class="[&>*]:cursor-grab hidden md:grid grid-cols-3 gap-x-6 gap-y-2 text-base mt-2" x-sort>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        Laravel
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                    Laravel
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        MySQL
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                    MySQL
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        Salesforce Commerce Cloud
-                    </li>
-                    
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                    Salesforce Commerce Cloud
+                </li>
+                
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        Livewire
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                    Livewire
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        AlpineJS / JavaScript / jQuery
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                    AlpineJS / JavaScript / jQuery
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        HTML / CSS / SASS / TailwindCSS
-                    </li>
-                    
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                    HTML / CSS / SASS / TailwindCSS
+                </li>
+                
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        PHP
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                    PHP
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        NextJS / React
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                    NextJS / React
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        SEO
-                    </li>
-                    
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                    SEO
+                </li>
+                
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        WordPress
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                    WordPress
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        NodeJS
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
+                    NodeJS
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
 
-                        VS Code
-                    </li>
-                </ul>
+                    VS Code
+                </li>
+            </ul>
 
-                <ul class="[&>*]:cursor-grab md:hidden text-base mt-2" x-sort>
-                    <li x-sort:item><span x-sort:handle>Laravel</span></li>
-                    <li x-sort:item><span x-sort:handle>Livewire</span></li>
-                    <li x-sort:item><span x-sort:handle>PHP</span></li>
-                    <li x-sort:item><span x-sort:handle>WordPress</span></li>
-                    <li x-sort:item><span x-sort:handle>JavaScript/jQuery</span></li>
-                    <li x-sort:item><span x-sort:handle>NextJS/React</span></li>
-                    <li x-sort:item><span x-sort:handle>MySQL</span></li>
-                    <li x-sort:item><span x-sort:handle>NodeJS</span></li>
-                    <li x-sort:item><span x-sort:handle>Salesforce Commerce Cloud</span></li>
-                    <li x-sort:item><span x-sort:handle>HTML/CSS/SASS/TailwindCSS</span></li>
-                    <li x-sort:item><span x-sort:handle>SEO</span></li>
-                    <li x-sort:item><span x-sort:handle>VS Code</span></li>
-                </ul>
+            <ul class="[&>*]:cursor-grab md:hidden text-base mt-2" x-sort>
+                <li x-sort:item><span x-sort:handle>Laravel</span></li>
+                <li x-sort:item><span x-sort:handle>Livewire</span></li>
+                <li x-sort:item><span x-sort:handle>PHP</span></li>
+                <li x-sort:item><span x-sort:handle>WordPress</span></li>
+                <li x-sort:item><span x-sort:handle>JavaScript/jQuery</span></li>
+                <li x-sort:item><span x-sort:handle>NextJS/React</span></li>
+                <li x-sort:item><span x-sort:handle>MySQL</span></li>
+                <li x-sort:item><span x-sort:handle>NodeJS</span></li>
+                <li x-sort:item><span x-sort:handle>Salesforce Commerce Cloud</span></li>
+                <li x-sort:item><span x-sort:handle>HTML/CSS/SASS/TailwindCSS</span></li>
+                <li x-sort:item><span x-sort:handle>SEO</span></li>
+                <li x-sort:item><span x-sort:handle>VS Code</span></li>
+            </ul>
+        </section>
+
+        <section class="mx-auto max-w-4xl mt-24 text-center">
+            <p>Curious about my resume?</p>
+
+            <div>
+                <a
+                target="_blank"
+                href="/assets/images/JonItzenResume.docx.pdf"
+                class="bg-slate-800 dark:bg-slate-100 rounded-md px-4 py-2 text-slate-100 dark:text-slate-800 hover:text-cyan-800 inline-block mt-2 text-sm font-semibold group"
+                >
+                    Download it here
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5 inline -mt-1 group-hover:hidden">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 -mt-1 hidden group-hover:inline text-cyan-700">
+                        <path fill-rule="evenodd" d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625ZM7.5 15a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 7.5 15Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.25Z" clip-rule="evenodd" />
+                        <path class="text-cyan-500" d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z" />
+                    </svg>
+                </a>
             </div>
-
-            <div class="mt-24 text-center">
-                <p>Curious about my resume?</p>
-
-                <div>
-                    <a
-                    target="_blank"
-                    href="/assets/images/JonItzenResume.docx.pdf"
-                    class="bg-slate-100 rounded-md px-4 py-2 text-slate-800 hover:text-cyan-800 inline-block mt-2 text-sm font-semibold group"
-                    >
-                        Download it here
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5 inline -mt-1 group-hover:hidden">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 -mt-1 hidden group-hover:inline text-cyan-700">
-                            <path fill-rule="evenodd" d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625ZM7.5 15a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 7.5 15Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.25Z" clip-rule="evenodd" />
-                            <path class="text-cyan-500" d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
+        </section>
     </div>
 </body>
 </html>
