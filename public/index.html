@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="font-sans bg-slate-800">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Itzen</title>
+
+    <link rel="stylesheet" href="/assets/css/app.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/sort@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/app.js"></script>
+</head>
+<body class="text-slate-100 font-light text-lg" x-data>
+    <div class="px-4">
+        <div class="mx-auto max-w-4xl py-12">
+            <h1 class="text-5xl font-thin text-center tracking-wider">
+                Jonathan Itzen
+            </h1>
+    
+            <div class="mt-24 space-y-2 [&>*]:cursor-grab" x-sort>
+                <h4>Hello 👋</h4>
+    
+                <p>Welcome to my website</p>
+    
+                <p>I'm a Full Stack Web Developer with a focus on Laravel but work with all things related to the web</p>
+    
+
+                <div class="flex flex-col items-end md:flex-row py-2">
+                    <img
+                    src="/assets/images/me.jpg"
+                    alt="Image of me with dog"
+                    class="size-40 rounded-full block"
+                    >
+
+                    <p class="text-sm font-medium tracking-wide text-slate-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline -mt-1 rotate-[120deg] md:rotate-[40deg]">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                        </svg>                          
+                        Here's an image of me with a dog
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
