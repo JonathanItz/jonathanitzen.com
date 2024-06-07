@@ -1,7 +1,7 @@
 console.log('👋')
 
 document.addEventListener('alpine:init', () => {
-    Alpine.data('sortableList', () => ({
+    Alpine.data('skills', () => ({
         items: [
             { text: 'Laravel' },
             { text: 'MySQL' },

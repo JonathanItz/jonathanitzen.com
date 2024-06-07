@@ -98,7 +98,7 @@ x-data="{
             <ul
             class="[&>*]:cursor-grab hidden sm:grid grid-cols-3 gap-x-6 gap-y-2 text-base mt-2"
             x-sort
-            x-data="sortableList"
+            x-data="skills"
             >
                 <template x-for="item in items" :key="item.text">
                     <li>
@@ -112,15 +112,13 @@ x-data="{
 
             <ul
                 class="[&>*]:cursor-grab sm:hidden text-base mt-2"
+                x-data="skills"
                 x-sort
-                x-data="sortableList"
+                x-sort:config="{ handle: '[x-sort\\:handle]' }"
             >
-                <template x-for="item in items" :key="item.text">
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
-                        <span x-text="item.text"></span>
+                <template x-for="item in items">
+                    <li x-sort:item>
+                        <span x-sort:handle x-text="item.text"></span>
                     </li>
                 </template>
             </ul>
