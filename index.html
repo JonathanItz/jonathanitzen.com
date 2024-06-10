@@ -28,8 +28,10 @@ x-data="{
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/sort@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/sort@3.14.0/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/@alpinejs/ui@3.14.0-beta.0/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/@alpinejs/focus@3.14.0/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.14.0/dist/cdn.min.js"></script>
 
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
@@ -59,7 +61,7 @@ x-data="{
         </button>
     </div>
 
-    <div class="px-4 pb-24">
+    <div class="px-4 pb-32">
         <section class="mx-auto max-w-4xl pt-12">
             <h1 class="text-5xl font-thin text-center tracking-wider">
                 Jonathan Itzen
@@ -93,7 +95,6 @@ x-data="{
 
         <section class="mx-auto max-w-4xl mt-24">
             <h4 class="text-2xl">Here's my skills</h4>
-            <h5 class="text-xs -mt-1">Don't worry. I have many more</h5>
 
             <ul
             class="[&>*]:cursor-grab hidden sm:grid grid-cols-3 gap-x-6 gap-y-2 text-base mt-2"
@@ -125,9 +126,358 @@ x-data="{
         </section>
 
         <section class="mx-auto max-w-4xl mt-24">
+            <h4 class="text-2xl">Some sites I've worked on</h4>
+            
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-2">
+                <div x-data="{ open: false }">
+                    <div
+                    role="button"
+                    class="
+                    bg-slate-100 dark:bg-slate-700 p-2 rounded-xl shadow-lg
+                    hover:ring-1 hover:ring-slate-300 dark:hover:ring-slate-600 transition-shadow
+                    "
+                    x-on:click="open = true"
+                    >
+                        <div class="relative">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 absolute right-2 top-2 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                            </svg>
+                        </div>
+
+                        <img
+                        src="/assets/images/kreg-logo.jpg"
+                        alt="Kreg Tool Company Logo"
+                        class="aspect-video object-cover rounded-lg"
+                        >
+
+                        <div class="mt-2 font-extralight text-lg tracking-wider">
+                            <h3>
+                                Kreg Tool
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div
+                        x-dialog
+                        x-model="open"
+                        style="display: none"
+                        class="fixed inset-0 overflow-y-auto z-10"
+                    >
+                        <!-- Overlay -->
+                        <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
+                
+                        <!-- Panel -->
+                        <div
+                            class="relative min-h-screen flex items-center justify-center p-4"
+                        >
+                            <div
+                                x-dialog:panel
+                                x-transition
+                                class="relative max-w-xl w-full bg-white dark:bg-slate-800 rounded-xl shadow-lg"
+                            >
+                                <!-- Close Button -->
+                                <div class="absolute top-0 right-0 pt-4 pr-4">
+                                    <button type="button" @click="$dialog.close()" class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2">
+                                        <span class="sr-only">Close modal</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                
+                                <!-- Body -->
+                                <div class="p-8">
+                                    <div class="flex flex-col sm:flex-row gap-6 items-center">
+                                        <!-- Title -->
+                                        <h2 x-dialog:title class="text-2xl font-bold">Kreg Tool</h2>
+                    
+                                        <a
+                                        target="_blank"
+                                        class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
+                                        href="https://kregtool.com">
+                                            Visit Site
+                                        </a>
+                                    </div>
+
+                                    <!-- Content -->
+                                    <div class="mt-3 space-y-2">
+                                        <p>Kreg Tool is a DIY woodworking company.</p>
+                                        <p>I helped develop and maintain their website, enhancing the UI / UX of the cart and checkout, product detail page, category page and product listing page.</p>
+                                        <p>I've created middleware connecting internal applications and services enhancing our teams performance.</p>
+                                    </div>
+
+                                    <h3 class="mt-4 text-lg font-semibold">
+                                        Stack
+                                    </h3>
+                                    <ul class="list-disc pl-4">
+                                        <li>Salesforce Commerce Cloud</li>
+                                        <li>NodeJS</li>
+                                        <li>Laravel / PHP</li>
+                                        <li>TailwindCSS / SCSS</li>
+                                        <li>JavaScript / AlpineJS</li>
+                                    </ul>
+
+                                    <div class="bg-slate-200 w-full h-px my-6"></div>
+
+                                    <div class="flex gap-6 items-center">
+                                        <h2 x-dialog:title class="text-2xl font-bold">Kreg Tool Learn</h2>
+                    
+                                        <a
+                                        target="_blank"
+                                        class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
+                                        href="https://learn.kregtool.com">
+                                            Visit Site
+                                        </a>
+                                    </div>
+
+                                    <p class="mt-3">Learn is a powerful resource for DIY woodworkers.</p>
+
+                                    <h3 class="mt-4 text-lg font-semibold">
+                                        Stack
+                                    </h3>
+                                    <ul class="list-disc pl-4">
+                                        <li>WordPress</li>
+                                        <li>PHP</li>
+                                        <li>TailwindCSS / SCSS</li>
+                                        <li>JavaScript / AlpineJS</li>
+                                    </ul>
+                                </div>
+                
+                                <!-- Footer -->
+                                <div class="p-4 flex justify-end space-x-2 bg-gray-50 dark:bg-slate-700 rounded-b-xl">
+                                    <button type="button" x-on:click="$dialog.close()" class="bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }">
+                    <div
+                    role="button"
+                    class="
+                    bg-slate-100 dark:bg-slate-700 p-2 rounded-xl shadow-lg
+                    hover:ring-1 hover:ring-slate-300 dark:hover:ring-slate-600 transition-shadow
+                    "
+                    x-on:click="open = true"
+                    >
+                        <div class="relative">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 absolute right-2 top-2 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                            </svg>
+                        </div>
+
+                        <img
+                        src="/assets/images/kreg-academy-logo.jpg"
+                        alt="Kreg Academy Logo"
+                        class="aspect-video object-cover rounded-lg"
+                        >
+
+                        <div class="mt-2 font-extralight text-lg tracking-wider">
+                            <h3>
+                                Kreg Academy
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div
+                        x-dialog
+                        x-model="open"
+                        style="display: none"
+                        class="fixed inset-0 overflow-y-auto z-10"
+                    >
+                        <!-- Overlay -->
+                        <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
+                
+                        <!-- Panel -->
+                        <div
+                            class="relative min-h-screen flex items-center justify-center p-4"
+                        >
+                            <div
+                                x-dialog:panel
+                                x-transition
+                                class="relative max-w-xl w-full bg-white dark:bg-slate-800 rounded-xl shadow-lg"
+                            >
+                                <!-- Close Button -->
+                                <div class="absolute top-0 right-0 pt-4 pr-4">
+                                    <button type="button" @click="$dialog.close()" class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2">
+                                        <span class="sr-only">Close modal</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                
+                                <!-- Body -->
+                                <div class="p-8">
+                                    <div class="flex flex-col sm:flex-row gap-6 items-center">
+                                        <!-- Title -->
+                                        <h2 x-dialog:title class="text-2xl font-bold">Kreg Tool Academy</h2>
+                    
+                                        <a
+                                        target="_blank"
+                                        class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
+                                        href="https://www.kregtool.com/academy">
+                                            Visit Site
+                                        </a>
+                                    </div>
+
+                                    <!-- Content -->
+                                    <div class="mt-3 space-y-2">
+                                        <p>Kreg Academy is a powerful online learning platform for DIY woodworkers.</p>
+                                        <p>I helped lead the end-to-end development of the Kreg Academy learning platform, working through all stages of development from initial concept / design to deployment.</p>
+                                        <p>This product teaches thousands of woodworkers through on demand video and many resources accessed through a paywall connected to their kregtool.com account.</p>
+                                    </div>
+                                    
+
+                                    <h3 class="mt-4 text-lg font-semibold">
+                                        Stack
+                                    </h3>
+                                    <ul class="list-disc pl-4">
+                                        <li>NextJS</li>
+                                        <li>WordPress</li>
+                                        <li>TailwindCSS</li>
+                                        <li>Salesforce Commerce Cloud</li>
+                                    </ul>
+                                </div>
+                
+                                <!-- Footer -->
+                                <div class="p-4 flex justify-end space-x-2 bg-gray-50 dark:bg-slate-700 rounded-b-xl">
+                                    <button type="button" x-on:click="$dialog.close()" class="bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }">
+                    <div
+                    role="button"
+                    class="
+                    bg-slate-100 dark:bg-slate-700 p-2 rounded-xl shadow-lg
+                    hover:ring-1 hover:ring-slate-300 dark:hover:ring-slate-600 transition-shadow
+                    "
+                    x-on:click="open = true"
+                    >
+                        <div class="relative">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 absolute right-2 top-2 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                            </svg>
+                        </div>
+
+                        <img
+                        src="/assets/images/aoeu-logo.png"
+                        alt="The Art of Education University Logo"
+                        class="aspect-video object-cover rounded-lg"
+                        >
+
+                        <div class="mt-2 font-extralight text-lg tracking-wider">
+                            <h3>
+                                The Art of Education University
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div
+                        x-dialog
+                        x-model="open"
+                        style="display: none"
+                        class="fixed inset-0 overflow-y-auto z-10"
+                    >
+                        <!-- Overlay -->
+                        <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
+                
+                        <!-- Panel -->
+                        <div
+                            class="relative min-h-screen flex items-center justify-center p-4"
+                        >
+                            <div
+                                x-dialog:panel
+                                x-transition
+                                class="relative max-w-xl w-full bg-white dark:bg-slate-800 rounded-xl shadow-lg"
+                            >
+                                <!-- Close Button -->
+                                <div class="absolute top-0 right-0 pt-4 pr-4">
+                                    <button type="button" @click="$dialog.close()" class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2">
+                                        <span class="sr-only">Close modal</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                
+                                <!-- Body -->
+                                <div class="p-8">
+                                    <div class="flex flex-col sm:flex-row gap-6 items-center">
+                                        <!-- Title -->
+                                        <h2 x-dialog:title class="text-2xl font-bold">The Art of Education University</h2>
+                    
+                                        <a
+                                        target="_blank"
+                                        class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
+                                        href="https://theartofeducation.edu/">
+                                            Visit Site
+                                        </a>
+                                    </div>
+
+                                    <!-- Content -->
+                                    <div class="space-y-2 mt-3">
+                                        <p>The Art of Education University (AOEU) is a fully fledged art university online.</p>
+                                        <p>AOEU allows users to further their education in art and obtain a master's in art.</p>
+                                        <p>AOEU PRO is an online learning platform that allows users to learn many skills related to art.</p>
+                                        <p>I helped develop and maintain this site and a wide variety of features including <span class="text-xs">(but not limited to)</span> the master's degree, PRO, FLEX and much more.</p>
+                                    </div>
+
+                                    <h3 class="mt-4 text-lg font-semibold">
+                                        Stack
+                                    </h3>
+                                    <ul class="list-disc pl-4">
+                                        <li>WordPress</li>
+                                        <li>CSS / SCSS</li>
+                                    </ul>
+                                </div>
+                
+                                <!-- Footer -->
+                                <div class="p-4 flex justify-end space-x-2 bg-gray-50 dark:bg-slate-700 rounded-b-xl">
+                                    <button type="button" x-on:click="$dialog.close()" class="bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h4 class="text-2xl">More sites</h4>
+            <ul>
+                <li>
+                    <a href="https://www.cuttysofokoboji.org/" target="_blank">Cutty's Okoboji</a>
+                </li>
+
+                <li>
+                    <a href="https://www.iowafinance.com/" target="_blank">Iowa Finance</a>
+                </li>
+
+                <li>
+                    <a href="https://itsahappymedium.com/" target="_blank">Happy Medium</a>
+                </li>
+
+                <li>
+                    <a href="https://www.dmgoodwill.org/" target="_blank">Goodwill of Central Iowa</a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mx-auto max-w-4xl mt-24">
             <h4 class="text-2xl">My links</h4>
             
-            <div class="flex justify-center gap-6">
+            <div class="flex gap-6 mt-2">
                 <div class="relative">
                     <a
                     x-tooltip="Stay tuned! I have many private repos I'm converting to public."
