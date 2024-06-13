@@ -1500,12 +1500,12 @@ video {
   gap: 0.75rem;
 }
 
-.gap-6 {
-  gap: 1.5rem;
-}
-
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
 }
 
 .gap-x-6 {
@@ -2119,14 +2119,6 @@ video {
 
 .fill-slate-800 {
   fill: #1e293b;
-}
-
-.fill-white {
-  fill: #fff;
-}
-
-.fill-slate-100 {
-  fill: #f1f5f9;
 }
 
 .object-contain {
@@ -2979,10 +2971,6 @@ video {
     align-items: center;
   }
 
-  .md\:justify-between {
-    justify-content: space-between;
-  }
-
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -3006,10 +2994,6 @@ video {
 
 .dark\:fill-slate-100:where(.dark, .dark *) {
   fill: #f1f5f9;
-}
-
-.dark\:fill-slate-800:where(.dark, .dark *) {
-  fill: #1e293b;
 }
 
 .dark\:text-slate-100:where(.dark, .dark *) {
