@@ -1,18 +1,13 @@
 <!DOCTYPE html>
-<html
-lang="en"
-class="font-sans bg-slate-200 dark:bg-slate-800"
-x-data="{
-    darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system')}"
-    x-init="
+<html lang="en" class="font-sans bg-slate-200 dark:bg-slate-800" x-data="{
+    darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system')}" x-init="
         if(localStorage.getItem('darkMode') === 'system') {
             darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
         }
         $watch('darkMode', val => localStorage.setItem('darkMode', val))
-    "
-    x-bind:class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
-}"
->
+    " x-bind:class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,25 +37,39 @@ x-data="{
     <script src="https://unpkg.com/tippy.js@6"></script>
 
     <script type="text/javascript" src="/assets/js/app.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S39E6B64GW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-S39E6B64GW');
+    </script>
 </head>
-<body class="text-slate-800 dark:text-slate-100 font-light" x-data>
-    
+
+<body class="text-slate-800 dark:text-slate-100 font-light antialiased" x-data>
+
     <div class="fixed right-2 top-2">
-        <button x-on:click="darkMode = 'light'" x-show="darkMode === 'dark' || (! window.matchMedia('(prefers-color-scheme: dark)').matches && darkMode === 'system')">
-            <svg xmlns="http://www.w3.org/2000/svg"
-            x-bind:class="{'border-2 border-red/50': darkMode === 'light'}"
-            class="w-6 h-6 p-1 text-gray-700 transition rounded-full cursor-pointer bg-gray-50 hover:bg-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        <button x-on:click="darkMode = 'light'"
+            x-show="darkMode === 'dark' || (! window.matchMedia('(prefers-color-scheme: dark)').matches && darkMode === 'system')">
+            <svg xmlns="http://www.w3.org/2000/svg" x-bind:class="{'border-2 border-red/50': darkMode === 'light'}"
+                class="w-6 h-6 p-1 text-gray-700 transition rounded-full cursor-pointer bg-gray-50 hover:bg-gray-200"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
             <span class="sr-only">light</span>
         </button>
-        
-    
-        <button x-on:click="darkMode = 'dark'" x-show="darkMode === 'light' || (window.matchMedia('(prefers-color-scheme: dark)').matches && darkMode === 'system')">
-            <svg xmlns="http://www.w3.org/2000/svg"
-            x-bind:class="{'border-2 border-red/50': darkMode === 'dark'}"
-            class="w-6 h-6 p-1 text-gray-100 transition bg-gray-700 rounded-full cursor-pointer dark:hover:bg-gray-600" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+
+
+        <button x-on:click="darkMode = 'dark'"
+            x-show="darkMode === 'light' || (window.matchMedia('(prefers-color-scheme: dark)').matches && darkMode === 'system')">
+            <svg xmlns="http://www.w3.org/2000/svg" x-bind:class="{'border-2 border-red/50': darkMode === 'dark'}"
+                class="w-6 h-6 p-1 text-gray-100 transition bg-gray-700 rounded-full cursor-pointer dark:hover:bg-gray-600"
+                viewBox="0 0 20 20" fill="currentColor">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
             </svg>
             <span class="sr-only">dark</span>
         </button>
@@ -73,38 +82,55 @@ x-data="{
             </h1>
 
             <div class="mt-8 max-w-96 mx-auto text-center">
-                <img
-                src="/assets/images/me.jpg"
-                alt="Image of me with dog"
-                class="size-40 rounded-full block mx-auto shadow-xl"
-                >
+                <img src="/assets/images/me.jpg" alt="Image of me with dog"
+                    class="size-40 rounded-full block mx-auto shadow-xl">
 
                 <p class="text-xs font-medium tracking-wide text-slate-500 dark:text-slate-300 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline -mt-1 rotate-[130deg]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                        stroke="currentColor" class="size-4 inline -mt-1 rotate-[130deg]">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                    </svg>                          
+                    </svg>
                     Here's an image of me with a dog
                 </p>
             </div>
-    
+
             <div class="mt-24 space-y-2 md:text-lg">
                 <h4 class="text-2xl">Hello 👋</h4>
-    
+
                 <p>I'm Jon. Welcome to my website.</p>
 
-                <p>I'm a Full Stack Web Developer working professionally since 2017.</p>
+                <p>I'm a Senior PHP and WordPress Developer with over 7 years of professional experience.</p>
 
-                <p>Since that time, I've worked at many great places including Happy Medium and Kreg Tool. I've created applications and websites I'm very proud of, showcasing my skills and contributing to various successful projects.</p>
+                <p>Since 2017, I've worked at companies like Happy Medium and Kreg Tool to create fast, accessible,
+                    highly functional, and SEO-optimized websites using PHP and WordPress. Throughout my career, I've
+                    developed PHP applications and custom WordPress solutions that I'm proud to showcase. These projects
+                    demonstrate my expertise in creating efficient, scalable web solutions.</p>
 
-                <p>My go-to stack is Laravel, but I work with all things related to the web.</p>
+                <p>While I'm proficient in various web technologies, my core strengths lie in PHP and WordPress
+                    development. I
+                    specialize in crafting custom themes and plugins, optimizing WordPress performance, and implementing
+                    complex
+                    functionalities to meet diverse client needs.</p>
 
-                <p>I'm currently looking for new opportunities to bring my expertise to exciting projects. Message me here or on LinkedIn if you'd like to connect!</p>
+                <p>I'm currently seeking new opportunities to apply my PHP and WordPress expertise to innovative
+                    projects. If you're
+                    looking for a dedicated developer to bring your web ideas to life, let's connect! You can reach out
+                    to me here, <button type="button" class="inline-flex gap-2 items-center font-medium" @click="
+                        if (location.protocol === 'https:') {
+                            $tooltip('Copied to clipboard')
+                            navigator.clipboard.writeText('hello@jonathanitzen.com')
+                        }
+                    ">
+                        hello@jonathanitzen.com
+                    </button>, or on
+                    <a href="https://www.linkedin.com/in/jonathan-itzen/" class="font-medium" target="_blank"
+                        rel="noopener noreferrer">LinkedIn.</a>
+                </p>
 
             </div>
         </section>
 
-        <div
-            x-data="{
+        <div x-data="{
                 selectedId: null,
                 init() {
                     // Set the first available tab on the page on page load.
@@ -119,174 +145,137 @@ x-data="{
                 whichChild(el, parent) {
                     return Array.from(parent.children).indexOf(el) + 1
                 }
-            }"
-            x-id="['tab']"
-            class="mx-auto max-w-4xl mt-24"
-        >
-            <ul
-                x-ref="tablist"
-                @keydown.right.prevent.stop="$focus.wrap().next()"
-                @keydown.home.prevent.stop="$focus.first()"
-                @keydown.page-up.prevent.stop="$focus.first()"
-                @keydown.left.prevent.stop="$focus.wrap().prev()"
-                @keydown.end.prevent.stop="$focus.last()"
-                @keydown.page-down.prevent.stop="$focus.last()"
-                role="tablist"
-                class="bg-slate-300/30 dark:bg-slate-900/30 rounded-full inline-flex p-1 text-sm shadow-inner shadow-slate-300 dark:shadow-slate-900 font-normal"
-            >
+            }" x-id="['tab']" class="mx-auto max-w-4xl mt-24">
+            <ul class="!hidden" x-ref="tablist" @keydown.right.prevent.stop="$focus.wrap().next()"
+                @keydown.home.prevent.stop="$focus.first()" @keydown.page-up.prevent.stop="$focus.first()"
+                @keydown.left.prevent.stop="$focus.wrap().prev()" @keydown.end.prevent.stop="$focus.last()"
+                @keydown.page-down.prevent.stop="$focus.last()" role="tablist"
+                class="bg-slate-300/30 dark:bg-slate-900/30 rounded-full inline-flex p-1 text-sm shadow-inner shadow-slate-300 dark:shadow-slate-900 font-normal">
                 <!-- Tab -->
                 <li>
-                    <button
-                        :id="$id('tab', whichChild($el.parentElement, $refs.tablist))"
-                        @click="select($el.id)"
-                        @mousedown.prevent
-                        @focus="select($el.id)"
-                        type="button"
-                        :tabindex="isSelected($el.id) ? 0 : -1"
+                    <button :id="$id('tab', whichChild($el.parentElement, $refs.tablist))" @click="select($el.id)"
+                        @mousedown.prevent @focus="select($el.id)" type="button" :tabindex="isSelected($el.id) ? 0 : -1"
                         :aria-selected="isSelected($el.id)"
                         :class="isSelected($el.id) ? 'bg-slate-100 dark:bg-slate-700/40' : 'border-transparent'"
-                        class="rounded-full px-3 py-1"
-                        role="tab"
-                    >My Work</button>
+                        class="rounded-full px-3 py-1" role="tab">My Work</button>
                 </li>
-        
+
                 <li>
-                    <button
-                        :id="$id('tab', whichChild($el.parentElement, $refs.tablist))"
-                        @click="select($el.id)"
-                        @mousedown.prevent
-                        @focus="select($el.id)"
-                        type="button"
-                        :tabindex="isSelected($el.id) ? 0 : -1"
+                    <button :id="$id('tab', whichChild($el.parentElement, $refs.tablist))" @click="select($el.id)"
+                        @mousedown.prevent @focus="select($el.id)" type="button" :tabindex="isSelected($el.id) ? 0 : -1"
                         :aria-selected="isSelected($el.id)"
                         :class="isSelected($el.id) ? 'bg-slate-100 dark:bg-slate-700/40' : 'border-transparent'"
-                        class="rounded-full px-3 py-1"
-                        role="tab"
-                    >My Services</button>
+                        class="rounded-full px-3 py-1" role="tab">My Services</button>
                 </li>
             </ul>
 
             <div role="tabpanels" class="mt-2">
-                <div
-                    x-show="isSelected($id('tab', whichChild($el, $el.parentElement)))"
-                    :aria-labelledby="$id('tab', whichChild($el, $el.parentElement))"
-                    role="tabpanel"
-                    style="display: block;"
-                >
+                <div x-show="isSelected($id('tab', whichChild($el, $el.parentElement)))"
+                    :aria-labelledby="$id('tab', whichChild($el, $el.parentElement))" role="tabpanel"
+                    style="display: block;">
                     <section>
                         <h4 class="text-2xl">Here's my skills</h4>
-                        <h5 class="text-sm -mt-0.5 text-slate-600 dark:text-slate-300"><a href="https://github.com/JonathanItz" target="_blank" class="hover:underline">View my GitHub to see more skills</a></h5>
-            
-                        <ul
-                        class="[&>*]:cursor-grab hidden sm:grid grid-cols-3 gap-x-6 gap-y-2 text-base mt-2"
-                        x-sort
-                        x-data="skills"
-                        >
+                        <h5 class="text-sm -mt-0.5 text-slate-600 dark:text-slate-300"><a
+                                href="https://github.com/JonathanItz" target="_blank" class="hover:underline">View my
+                                GitHub to see more skills</a></h5>
+
+                        <ul class="hidden sm:grid grid-cols-3 gap-x-6 gap-y-2 text-base mt-2" x-data="skills">
                             <template x-for="item in items" :key="item.text">
                                 <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 inline">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2.5" stroke="currentColor" class="size-4 inline">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m4.5 12.75 6 6 9-13.5" />
                                     </svg>
                                     <span x-text="item.text"></span>
                                 </li>
                             </template>
                         </ul>
-            
-                        <ul
-                            class="[&>*]:cursor-grab sm:hidden text-base mt-2"
-                            x-data="skills"
-                            x-sort
-                            x-sort:config="{ handle: '[x-sort\\:handle]' }"
-                        >
+
+                        <ul class="[&>*]:cursor-grab sm:hidden text-base mt-2" x-data="skills">
                             <template x-for="item in itemsMobile">
-                                <li x-sort:item>
-                                    <span x-sort:handle x-text="item.text"></span>
+                                <li>
+                                    <span x-text="item.text"></span>
                                 </li>
                             </template>
                         </ul>
                     </section>
-            
+
                     <section class="mt-24">
                         <h4 class="text-2xl">Sites I've worked on</h4>
-                        
+
                         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-2">
                             <div x-data="{ open: false }">
-                                <div
-                                role="button"
-                                class="
+                                <div role="button" class="
                                 bg-slate-100 dark:bg-slate-700 p-2 rounded-xl shadow-lg
-                                hover:ring-1 hover:ring-slate-300 dark:hover:ring-slate-600 transition-shadow
-                                "
-                                x-on:click="open = true"
-                                >
+                                hover:ring-1 hover:ring-slate-300 dark:hover:ring-slate-500 transition-shadow
+                                " x-on:click="open = true">
                                     <div class="relative">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 absolute right-2 top-2 text-white">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor"
+                                            class="size-6 absolute right-2 top-2 text-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
                                         </svg>
                                     </div>
-            
-                                    <img
-                                    src="/assets/images/kreg-logo.jpg"
-                                    alt="Kreg Tool Company Logo"
-                                    class="aspect-video object-cover rounded-lg"
-                                    >
-            
+
+                                    <img src="/assets/images/work/kreg-logo.jpg" alt="Kreg Tool Company Logo"
+                                        class="aspect-video object-cover rounded-lg">
+
                                     <div class="mt-2 font-extralight text-lg tracking-wider">
                                         <h3>
                                             Kreg Tool & Learn
                                         </h3>
                                     </div>
                                 </div>
-            
-                                <div
-                                    x-dialog
-                                    x-model="open"
-                                    style="display: none"
-                                    class="fixed inset-0 overflow-y-auto z-10"
-                                >
+
+                                <div x-dialog x-model="open" style="display: none"
+                                    class="fixed inset-0 overflow-y-auto z-10">
                                     <!-- Overlay -->
-                                    <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
-                            
+                                    <div x-dialog:overlay x-transition.opacity
+                                        class="fixed inset-0 bg-black bg-opacity-50"></div>
+
                                     <!-- Panel -->
-                                    <div
-                                        class="relative min-h-screen flex items-center justify-center p-4"
-                                    >
-                                        <div
-                                            x-dialog:panel
-                                            x-transition
-                                            class="relative max-w-xl w-full bg-white dark:bg-slate-800 rounded-xl shadow-lg"
-                                        >
+                                    <div class="relative min-h-screen flex items-center justify-center p-4">
+                                        <div x-dialog:panel x-transition
+                                            class="relative max-w-xl w-full bg-white dark:bg-slate-800 rounded-xl shadow-lg">
                                             <!-- Close Button -->
                                             <div class="absolute top-0 right-0 pt-4 pr-4">
-                                                <button type="button" @click="$dialog.close()" class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2">
+                                                <button type="button" @click="$dialog.close()"
+                                                    class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2">
                                                     <span class="sr-only">Close modal</span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                            clip-rule="evenodd" />
                                                     </svg>
                                                 </button>
                                             </div>
-                            
+
                                             <!-- Body -->
                                             <div class="p-8">
                                                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 items-center">
                                                     <!-- Title -->
                                                     <h2 x-dialog:title class="text-2xl font-bold">Kreg Tool</h2>
-                                
-                                                    <a
-                                                    target="_blank"
-                                                    class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
-                                                    href="https://kregtool.com">
+
+                                                    <a target="_blank"
+                                                        class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
+                                                        href="https://kregtool.com">
                                                         Visit Site
                                                     </a>
                                                 </div>
-            
+
                                                 <!-- Content -->
                                                 <div class="mt-3 space-y-2">
                                                     <p>Kreg Tool is the leading DIY woodworking company.</p>
-                                                    <p>I helped develop and maintain their website, enhancing the UI / UX of the cart, checkout, product detail page, category page and product listing page.</p>
-                                                    <p>I've created middleware connecting internal applications and services enhancing our teams performance and productivity.</p>
+                                                    <p>I helped develop and maintain their website, enhancing the UI /
+                                                        UX of the cart, checkout, product detail page, category page and
+                                                        product listing page.</p>
+                                                    <p>I've created middleware connecting internal applications and
+                                                        services enhancing our teams performance and productivity.</p>
                                                 </div>
-            
+
                                                 <h3 class="mt-4 text-lg font-semibold">
                                                     Stack
                                                 </h3>
@@ -297,22 +286,21 @@ x-data="{
                                                     <li>TailwindCSS / SCSS</li>
                                                     <li>JavaScript / AlpineJS</li>
                                                 </ul>
-            
+
                                                 <div class="bg-slate-200 w-full h-px my-6"></div>
-            
+
                                                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 items-center">
                                                     <h2 x-dialog:title class="text-2xl font-bold">Kreg Tool Learn</h2>
-                                
-                                                    <a
-                                                    target="_blank"
-                                                    class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
-                                                    href="https://learn.kregtool.com">
+
+                                                    <a target="_blank"
+                                                        class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
+                                                        href="https://learn.kregtool.com">
                                                         Visit Site
                                                     </a>
                                                 </div>
-            
+
                                                 <p class="mt-3">Learn is a powerful resource for DIY woodworkers.</p>
-            
+
                                                 <h3 class="mt-4 text-lg font-semibold">
                                                     Stack
                                                 </h3>
@@ -323,10 +311,12 @@ x-data="{
                                                     <li>JavaScript / AlpineJS</li>
                                                 </ul>
                                             </div>
-                            
+
                                             <!-- Footer -->
-                                            <div class="p-4 flex justify-end space-x-2 bg-gray-50 dark:bg-slate-700 rounded-b-xl">
-                                                <button type="button" x-on:click="$dialog.close()" class="bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
+                                            <div
+                                                class="p-4 flex justify-end space-x-2 bg-gray-50 dark:bg-slate-700 rounded-b-xl">
+                                                <button type="button" x-on:click="$dialog.close()"
+                                                    class="bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
                                                     Close
                                                 </button>
                                             </div>
@@ -334,85 +324,81 @@ x-data="{
                                     </div>
                                 </div>
                             </div>
-            
+
                             <div x-data="{ open: false }">
-                                <div
-                                role="button"
-                                class="
+                                <div role="button" class="
                                 bg-slate-100 dark:bg-slate-700 p-2 rounded-xl shadow-lg
-                                hover:ring-1 hover:ring-slate-300 dark:hover:ring-slate-600 transition-shadow
-                                "
-                                x-on:click="open = true"
-                                >
+                                hover:ring-1 hover:ring-slate-300 dark:hover:ring-slate-500 transition-shadow
+                                " x-on:click="open = true">
                                     <div class="relative">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 absolute right-2 top-2 text-white">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor"
+                                            class="size-6 absolute right-2 top-2 text-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
                                         </svg>
                                     </div>
-            
-                                    <img
-                                    src="/assets/images/kreg-academy-logo.jpg"
-                                    alt="Kreg Academy Logo"
-                                    class="aspect-video object-cover rounded-lg"
-                                    >
-            
+
+                                    <img src="/assets/images/work/kreg-academy-logo.jpg" alt="Kreg Academy Logo"
+                                        class="aspect-video object-cover rounded-lg">
+
                                     <div class="mt-2 font-extralight text-lg tracking-wider">
                                         <h3>
                                             Kreg Academy
                                         </h3>
                                     </div>
                                 </div>
-            
-                                <div
-                                    x-dialog
-                                    x-model="open"
-                                    style="display: none"
-                                    class="fixed inset-0 overflow-y-auto z-10"
-                                >
+
+                                <div x-dialog x-model="open" style="display: none"
+                                    class="fixed inset-0 overflow-y-auto z-10">
                                     <!-- Overlay -->
-                                    <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
-                            
+                                    <div x-dialog:overlay x-transition.opacity
+                                        class="fixed inset-0 bg-black bg-opacity-50"></div>
+
                                     <!-- Panel -->
-                                    <div
-                                        class="relative min-h-screen flex items-center justify-center p-4"
-                                    >
-                                        <div
-                                            x-dialog:panel
-                                            x-transition
-                                            class="relative max-w-xl w-full bg-white dark:bg-slate-800 rounded-xl shadow-lg"
-                                        >
+                                    <div class="relative min-h-screen flex items-center justify-center p-4">
+                                        <div x-dialog:panel x-transition
+                                            class="relative max-w-xl w-full bg-white dark:bg-slate-800 rounded-xl shadow-lg">
                                             <!-- Close Button -->
                                             <div class="absolute top-0 right-0 pt-4 pr-4">
-                                                <button type="button" @click="$dialog.close()" class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2">
+                                                <button type="button" @click="$dialog.close()"
+                                                    class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2">
                                                     <span class="sr-only">Close modal</span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                            clip-rule="evenodd" />
                                                     </svg>
                                                 </button>
                                             </div>
-                            
+
                                             <!-- Body -->
                                             <div class="p-8">
                                                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 items-center">
                                                     <!-- Title -->
                                                     <h2 x-dialog:title class="text-2xl font-bold">Kreg Tool Academy</h2>
-                                
-                                                    <a
-                                                    target="_blank"
-                                                    class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
-                                                    href="https://www.kregtool.com/academy">
+
+                                                    <a target="_blank"
+                                                        class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
+                                                        href="https://www.kregtool.com/academy">
                                                         Visit Site
                                                     </a>
                                                 </div>
-            
+
                                                 <!-- Content -->
                                                 <div class="mt-3 space-y-2">
-                                                    <p>Kreg Academy is a powerful online learning platform for DIY woodworkers.</p>
-                                                    <p>I helped lead the end-to-end development of the Kreg Academy learning platform, working through all stages of development from initial concept / design to deployment.</p>
-                                                    <p>This product teaches thousands of woodworkers through on demand video and many resources accessed through a paywall connected to their kregtool.com account.</p>
+                                                    <p>Kreg Academy is a powerful online learning platform for DIY
+                                                        woodworkers.</p>
+                                                    <p>I helped lead the end-to-end development of the Kreg Academy
+                                                        learning platform, working through all stages of development
+                                                        from initial concept / design to deployment.</p>
+                                                    <p>This product teaches thousands of woodworkers through on demand
+                                                        video and many resources accessed through a paywall connected to
+                                                        their kregtool.com account.</p>
                                                 </div>
-                                                
-            
+
+
                                                 <h3 class="mt-4 text-lg font-semibold">
                                                     Stack
                                                 </h3>
@@ -423,10 +409,12 @@ x-data="{
                                                     <li>Salesforce Commerce Cloud</li>
                                                 </ul>
                                             </div>
-                            
+
                                             <!-- Footer -->
-                                            <div class="p-4 flex justify-end space-x-2 bg-gray-50 dark:bg-slate-700 rounded-b-xl">
-                                                <button type="button" x-on:click="$dialog.close()" class="bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
+                                            <div
+                                                class="p-4 flex justify-end space-x-2 bg-gray-50 dark:bg-slate-700 rounded-b-xl">
+                                                <button type="button" x-on:click="$dialog.close()"
+                                                    class="bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
                                                     Close
                                                 </button>
                                             </div>
@@ -434,85 +422,83 @@ x-data="{
                                     </div>
                                 </div>
                             </div>
-            
+
                             <div x-data="{ open: false }">
-                                <div
-                                role="button"
-                                class="
+                                <div role="button" class="
                                 bg-slate-100 dark:bg-slate-700 p-2 rounded-xl shadow-lg
-                                hover:ring-1 hover:ring-slate-300 dark:hover:ring-slate-600 transition-shadow
-                                "
-                                x-on:click="open = true"
-                                >
+                                hover:ring-1 hover:ring-slate-300 dark:hover:ring-slate-500 transition-shadow
+                                " x-on:click="open = true">
                                     <div class="relative">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 absolute right-2 top-2 text-white">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor"
+                                            class="size-6 absolute right-2 top-2 text-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
                                         </svg>
                                     </div>
-            
-                                    <img
-                                    src="/assets/images/aoeu-logo.png"
-                                    alt="The Art of Education University Logo"
-                                    class="aspect-video object-cover rounded-lg"
-                                    >
-            
+
+                                    <img src="/assets/images/work/aoeu-logo.png"
+                                        alt="The Art of Education University Logo"
+                                        class="aspect-video object-cover rounded-lg">
+
                                     <div class="mt-2 font-extralight text-lg tracking-wider">
                                         <h3>
                                             The Art of Education University
                                         </h3>
                                     </div>
                                 </div>
-            
-                                <div
-                                    x-dialog
-                                    x-model="open"
-                                    style="display: none"
-                                    class="fixed inset-0 overflow-y-auto z-10"
-                                >
+
+                                <div x-dialog x-model="open" style="display: none"
+                                    class="fixed inset-0 overflow-y-auto z-10">
                                     <!-- Overlay -->
-                                    <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
-                            
+                                    <div x-dialog:overlay x-transition.opacity
+                                        class="fixed inset-0 bg-black bg-opacity-50"></div>
+
                                     <!-- Panel -->
-                                    <div
-                                        class="relative min-h-screen flex items-center justify-center p-4"
-                                    >
-                                        <div
-                                            x-dialog:panel
-                                            x-transition
-                                            class="relative max-w-xl w-full bg-white dark:bg-slate-800 rounded-xl shadow-lg"
-                                        >
+                                    <div class="relative min-h-screen flex items-center justify-center p-4">
+                                        <div x-dialog:panel x-transition
+                                            class="relative max-w-xl w-full bg-white dark:bg-slate-800 rounded-xl shadow-lg">
                                             <!-- Close Button -->
                                             <div class="absolute top-0 right-0 pt-4 pr-4">
-                                                <button type="button" @click="$dialog.close()" class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2">
+                                                <button type="button" @click="$dialog.close()"
+                                                    class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2">
                                                     <span class="sr-only">Close modal</span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                            clip-rule="evenodd" />
                                                     </svg>
                                                 </button>
                                             </div>
-                            
+
                                             <!-- Body -->
                                             <div class="p-8">
                                                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 items-center">
                                                     <!-- Title -->
-                                                    <h2 x-dialog:title class="text-2xl font-bold">The Art of Education University</h2>
-                                
-                                                    <a
-                                                    target="_blank"
-                                                    class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
-                                                    href="https://theartofeducation.edu/">
+                                                    <h2 x-dialog:title class="text-2xl font-bold">The Art of Education
+                                                        University</h2>
+
+                                                    <a target="_blank"
+                                                        class="inline-block bg-slate-800 dark:bg-slate-200 rounded-md px-3 py-0.5 text-white dark:text-slate-800"
+                                                        href="https://theartofeducation.edu/">
                                                         Visit Site
                                                     </a>
                                                 </div>
-            
+
                                                 <!-- Content -->
                                                 <div class="space-y-2 mt-3">
-                                                    <p>The Art of Education University (AOEU) is a fully fledged art university online.</p>
-                                                    <p>AOEU allows users to further their education in art and obtain a master's in art.</p>
-                                                    <p>AOEU PRO is an online learning platform that allows users to learn many skills related to art.</p>
-                                                    <p>I helped develop and maintain this site and a wide variety of features including <span class="text-xs">(but not limited to)</span> the master's degree, PRO, FLEX and much more.</p>
+                                                    <p>The Art of Education University (AOEU) is a fully fledged art
+                                                        university online.</p>
+                                                    <p>AOEU allows users to further their education in art and obtain a
+                                                        master's in art.</p>
+                                                    <p>AOEU PRO is an online learning platform that allows users to
+                                                        learn many skills related to art.</p>
+                                                    <p>I helped develop and maintain this site and a wide variety of
+                                                        features including <span class="text-xs">(but not limited
+                                                            to)</span> the master's degree, PRO, FLEX and much more.</p>
                                                 </div>
-            
+
                                                 <h3 class="mt-4 text-lg font-semibold">
                                                     Stack
                                                 </h3>
@@ -521,10 +507,12 @@ x-data="{
                                                     <li>CSS / SCSS</li>
                                                 </ul>
                                             </div>
-                            
+
                                             <!-- Footer -->
-                                            <div class="p-4 flex justify-end space-x-2 bg-gray-50 dark:bg-slate-700 rounded-b-xl">
-                                                <button type="button" x-on:click="$dialog.close()" class="bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
+                                            <div
+                                                class="p-4 flex justify-end space-x-2 bg-gray-50 dark:bg-slate-700 rounded-b-xl">
+                                                <button type="button" x-on:click="$dialog.close()"
+                                                    class="bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
                                                     Close
                                                 </button>
                                             </div>
@@ -532,127 +520,194 @@ x-data="{
                                     </div>
                                 </div>
                             </div>
-            
+
                         </div>
-            
-                        <div class="mt-4">
-                            <h4 class="text-2xl">More sites</h4>
-                            <ul>
+
+                        <div class="mt-24">
+                            <h4 class="text-2xl">All PHP and WordPress</h4>
+                            <ul class="grid grid-cols-3 gap-6 mt-2">
                                 <li>
-                                    <a href="https://www.cuttysofokoboji.org/" target="_blank">Cutty's Okoboji</a>
+                                    <a href="https://cuttysofokoboji.org" target="_blank"
+                                        class="block space-y-2 group font-medium text-sm text-slate-700 dark:text-slate-200 text-center">
+                                        <div class="rounded-lg">
+                                            <img src="/assets/images/work/cuttys.png"
+                                                class="aspect-video object-cover rounded-lg group-hover:rotate-3 transition-transform shadow-lg"
+                                                alt="Cutty's homepage hero section">
+                                        </div>
+
+                                        <div>Cutty's Okoboji</div>
+                                    </a>
                                 </li>
-            
+
                                 <li>
-                                    <a href="https://www.iowafinance.com/" target="_blank">Iowa Finance</a>
+                                    <a href="https://iowafinance.com" target="_blank"
+                                        class="block space-y-2 group font-medium text-sm text-slate-700 dark:text-slate-200 text-center">
+                                        <div class="rounded-lg">
+                                            <img src="/assets/images/work/iowafinance.png"
+                                                class="aspect-video object-cover rounded-lg group-hover:-rotate-3 transition-transform shadow-lg"
+                                                alt="Iowa Finance homepage hero section">
+                                        </div>
+
+                                        <div>Iowa Finance</div>
+                                    </a>
                                 </li>
-            
+
                                 <li>
-                                    <a href="https://itsahappymedium.com/" target="_blank">Happy Medium</a>
+                                    <a href="https://itsahappymedium.com" target="_blank"
+                                        class="block space-y-2 group font-medium text-sm text-slate-700 dark:text-slate-200 text-center">
+                                        <div class="rounded-lg">
+                                            <img src="/assets/images/work/happymedium.png"
+                                                class="aspect-video object-cover rounded-lg group-hover:rotate-3 transition-transform shadow-lg"
+                                                alt="Happy Medium's homepage hero section">
+                                        </div>
+
+                                        <div>Happy Medium</div>
+                                    </a>
                                 </li>
-            
+
                                 <li>
-                                    <a href="https://www.dmgoodwill.org/" target="_blank">Goodwill of Central Iowa</a>
+                                    <a href="https://dmgoodwill.org" target="_blank"
+                                        class="block space-y-2 group font-medium text-sm text-slate-700 dark:text-slate-200 text-center">
+                                        <div class="rounded-lg">
+                                            <img src="/assets/images/work/gci.png"
+                                                class="aspect-video object-cover rounded-lg group-hover:-rotate-3 transition-transform shadow-lg"
+                                                alt="Goodwill of Central Iowa's homepage hero section">
+                                        </div>
+
+                                        <div>Goodwill of Central Iowa</div>
+                                    </a>
                                 </li>
-            
+
                                 <li>
-                                    <a href="https://www.iowaortho.com/" target="_blank">Iowa Ortho</a>
+                                    <a href="https://iowaortho.com" target="_blank"
+                                        class="block space-y-2 group font-medium text-sm text-slate-700 dark:text-slate-200 text-center">
+                                        <div class="rounded-lg">
+                                            <img src="/assets/images/work/iowaortho.png"
+                                                class="aspect-video object-cover rounded-lg group-hover:rotate-3 transition-transform shadow-lg"
+                                                alt="Iowa Ortho's homepage hero section">
+                                        </div>
+
+                                        <div>Iowa Ortho</div>
+                                    </a>
                                 </li>
-            
+
                                 <li>
-                                    <a href="https://www.manatts.com/" target="_blank">Manatts</a>
+                                    <a href="https://manatts.com" target="_blank"
+                                        class="block space-y-2 group font-medium text-sm text-slate-700 dark:text-slate-200 text-center">
+                                        <div class="rounded-lg">
+                                            <img src="/assets/images/work/manatts.png"
+                                                class="aspect-video object-cover rounded-lg group-hover:-rotate-3 transition-transform shadow-lg"
+                                                alt="Manatts's homepage hero section">
+                                        </div>
+
+                                        <div>Manatts</div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                     </section>
                 </div>
-    
-                <div
-                    x-show="isSelected($id('tab', whichChild($el, $el.parentElement)))"
-                    :aria-labelledby="$id('tab', whichChild($el, $el.parentElement))"
-                    role="tabpanel"
-                    class="prose dark:prose-invert max-w-full"
-                >
+
+                <div class="!hidden" x-show="isSelected($id('tab', whichChild($el, $el.parentElement)))"
+                    :aria-labelledby="$id('tab', whichChild($el, $el.parentElement))" role="tabpanel"
+                    class="prose dark:prose-invert max-w-full">
                     <h3>Need web work?</h3>
 
-                    <p>I offer a range of web services, from ready-to-use WordPress websites to custom solutions tailored for your business. Contact or email me to get started!</p>
-                    
+                    <p>I offer a range of web services, from ready-to-use WordPress websites to custom solutions
+                        tailored for your business. Contact or email me to get started!</p>
+
                     <div class="border border-slate-700 bg-slate-300/20 dark:bg-slate-700/20 rounded-xl p-2">
                         <h4 class="my-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 inline -mt-1">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6 inline -mt-1">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
                             </svg>
                             Don't want WordPress?
                         </h4>
-                        <p class="my-0">I can create you a custom software solution to fit your needs. Reach out to get the conversation started.</p>
+                        <p class="my-0">I can create you a custom software solution to fit your needs. Reach out to get
+                            the conversation started.</p>
                     </div>
 
                     <h4>Custom WordPress Website Development</h4>
-                    <p>I create custom WordPress websites that reflect your brand's identity and meet your specific business goals. From concept to launch, I make sure your website is visually appealing, user-friendly, and works well on all devices.</p>
-                    
+                    <p>I create custom WordPress websites that reflect your brand's identity and meet your specific
+                        business goals. From concept to launch, I make sure your website is visually appealing,
+                        user-friendly, and works well on all devices.</p>
+
                     <h4>Theme Development and Customization</h4>
-                    <p>Whether you need a custom theme developed from scratch or want to enhance an existing one, I've got you covered. My theme development and customization services make sure your website stands out with a unique design that aligns with your brand.</p>
-                    
+                    <p>Whether you need a custom theme developed from scratch or want to enhance an existing one, I've
+                        got you covered. My theme development and customization services make sure your website stands
+                        out with a unique design that aligns with your brand.</p>
+
                     <h4>Plugin Development and Customization</h4>
-                    <p>Need specific functionality for your WordPress site? I develop and customize plugins to extend your website's capabilities, providing the features you need to enhance user experience and streamline business operations.</p>
-                    
+                    <p>Need specific functionality for your WordPress site? I develop and customize plugins to extend
+                        your website's capabilities, providing the features you need to enhance user experience and
+                        streamline business operations.</p>
+
                     <h4>Maintenance and Support</h4>
-                    <p>Keep your website running smoothly with my ongoing maintenance and support services. I handle updates, backups, security monitoring, and performance optimization, so you can focus on growing your business.</p>
+                    <p>Keep your website running smoothly with my ongoing maintenance and support services. I handle
+                        updates, backups, security monitoring, and performance optimization, so you can focus on growing
+                        your business.</p>
                     <p>$50/month for maintenance and bugfixes</p>
-                    
+
                     <!-- <h4>E-commerce Websites</h4>
                     <p>I build strong e-commerce websites using WooCommerce, tailored to provide a great shopping experience for your customers. From product listings to payment gateways, I make sure your online store is secure, scalable, and easy to manage.</p> -->
-                    
+
                     <!-- <h4>SEO Optimization</h4>
                     <p>Boost your website's visibility on search engines with my SEO optimization services. I use best practices in on-site SEO to improve your search rankings, drive organic traffic, and increase your online presence.</p> -->
-                    
+
                     <h4>Dedicated Hosting</h4>
-                    <p>Make sure your website is always online and performing at its best. Don't use a shared server with other websites. Use dedicated servers for fast loading times, and strong security, all for a simple monthly fee.</p>
+                    <p>Make sure your website is always online and performing at its best. Don't use a shared server
+                        with other websites. Use dedicated servers for fast loading times, and strong security, all for
+                        a simple monthly fee.</p>
                     <p>Monthly Fee: Starting at $30/month</p>
                     <p>Includes: Dedicated hosting, SSL certificates and secure.</p>
-                    
+
                     <br>
-                    
+
                     <p>Ready to take your online presence to the next level? Contact me today to get started!</p>
-                
+
                 </div>
             </div>
         </div>
 
         <section class="mx-auto max-w-4xl mt-24">
             <h4 class="text-2xl">My links</h4>
-            
+
             <div class="flex flex-col md:flex-row justify-between md:items-center gap-4">
                 <div class="flex gap-6 mt-2">
-                    <a
-                    target="_blank"
-                    href="https://github.com/JonathanItz"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="size-8 fill-slate-800 dark:fill-slate-100">
+                    <a target="_blank" href="https://github.com/JonathanItz">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
+                            class="size-8 fill-slate-800 dark:fill-slate-100">
                             <!-- !Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                            <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+                            <path
+                                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
                         </svg>
                     </a>
-    
+
                     <a target="_blank" href="https://www.linkedin.com/in/jonathan-itzen/">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="size-8 fill-slate-800 dark:fill-slate-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                            class="size-8 fill-slate-800 dark:fill-slate-100">
                             <!-- !Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
-                            <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/>
+                            <path
+                                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
                         </svg>
                     </a>
                 </div>
 
                 <div>
-                    <button
-                    type="button"
-                    class="flex gap-2 items-center font-medium"
-                    @click="
+                    <button type="button" class="flex gap-2 items-center font-medium" @click="
                         if (location.protocol === 'https:') {
                             $tooltip('Copied to clipboard')
                             navigator.clipboard.writeText('hello@jonathanitzen.com')
                         }
-                    "
-                    >
-                        <svg class="size-5 fill-slate-800 dark:fill-slate-100 inline" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gmail</title><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+                    ">
+                        <svg class="size-5 fill-slate-800 dark:fill-slate-100 inline" role="img" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <title>Gmail</title>
+                            <path
+                                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+                        </svg>
                         hello@jonathanitzen.com
                     </button>
                 </div>
@@ -660,4 +715,5 @@ x-data="{
         </section>
     </div>
 </body>
+
 </html>

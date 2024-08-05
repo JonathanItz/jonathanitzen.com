@@ -5,3 +5,14 @@
 [id^=tippy] div[class^=tippy] {
     @apply bg-slate-800 dark:bg-slate-100 dark:text-slate-800 rounded-md;
 }
+
+.dark {
+    .tippy-arrow {
+        &:before {
+            --tw-bg-opacity: 1;
+            border-top-color: rgb(241 245 249 / var(--tw-bg-opacity)) !important;
+        }
+        /* @apply bg-slate-100; */
+        /* bottom: -10px !important; */
+    }
+}

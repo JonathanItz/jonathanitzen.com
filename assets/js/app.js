@@ -3,27 +3,30 @@ console.log('👋')
 document.addEventListener('alpine:init', () => {
     Alpine.data('skills', () => ({
         items: [
-            { text: 'Laravel' },
-            { text: 'MySQL' },
-            { text: 'Salesforce Commerce Cloud' },
-            { text: 'Livewire' },
-            { text: 'AlpineJS / JavaScript / jQuery' },
-            { text: 'HTML / CSS / SASS / TailwindCSS' },
             { text: 'PHP' },
             { text: 'NextJS / React' },
-            { text: 'SEO' },
+            { text: 'Salesforce Commerce Cloud' },
+            
             { text: 'WordPress' },
+            { text: 'AlpineJS / JavaScript / jQuery' },
+            { text: 'HTML / CSS / SASS / TailwindCSS' },
+
+            { text: 'MySQL' },
+            { text: 'Livewire' },
+            { text: 'SEO' },
+
+            { text: 'Laravel' },
             { text: 'NodeJS' },
             { text: 'VS Code' },
         ],
         itemsMobile: [
-            { text: 'Laravel' },
-            { text: 'Livewire' },
             { text: 'PHP' },
             { text: 'WordPress' },
             { text: 'MySQL' },
-            { text: 'AlpineJS / JavaScript / jQuery' },
+            { text: 'Laravel' },
             { text: 'NextJS / React' },
+            { text: 'AlpineJS / JavaScript / jQuery' },
+            { text: 'Livewire' },
             { text: 'NodeJS' },
             { text: 'Salesforce Commerce Cloud' },
             { text: 'HTML / CSS / SASS / TailwindCSS' },
