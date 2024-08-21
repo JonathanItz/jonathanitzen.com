@@ -76,13 +76,28 @@
         </button>
     </div>
 
-    <div class="fixed top-4 left-4 font-medium text-sm space-x-3">
+    <div class="fixed top-4 left-4 font-medium text-sm space-x-3 bg-slate-100/50 rounded-md px-3 py-1 backdrop-blur-[1px] z-10">
         <a class="hover:underline" href="/">Home</a>
         <a class="hover:underline" href="/hosting">Hosting</a>
     </div>
 
+    <div class="absolute w-full -z-10 top-0">
+        <svg class="absolute inset-x-0 top-0 h-[64rem] w-full stroke-slate-300 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
+            aria-hidden="true">
+            <defs>
+                <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
+                    patternUnits="userSpaceOnUse">
+                    <path d="M.5 200V.5H200" fill="none"></path>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"></rect>
+        </svg>
+    </div>
+
     <div class="px-4 pb-4 md:pb-32">
+
         <section class="mx-auto max-w-4xl pt-12">
+
             <h1 class="text-5xl font-thin text-center tracking-wider ml1">
                 <span class="text-wrapper">
                     <span class="line bg-slate-800 dark:bg-slate-100 line1"></span>
@@ -98,22 +113,53 @@
                     class="w-full mx-auto hidden dark:block">
             </div>
 
-            <div class="mt-24 space-y-2 md:text-lg">
-                <p>Unlock the full potential of your WordPress website with dedicated servers.</p>
+            <div class="mt-24 md:text-lg">
+                <p>Upgrade your site with a dedicated server solution to unlock the full potential of your WordPress website.
+                    Dedicated servers offer blazing-fast performance and unparalleled reliability, ensuring your site loads quickly
+                    and stays online even during periods of high traffic. Experience the difference a dedicated server can make in
+                    elevating your online presence and delivering an exceptional user experience.</p>
 
-                <div class="space-y-8">
+                <div class="pt-24">
                     <div>
                         <h5 class="text-xl font-medium">Hosting Features</h5>
-                        <ul class="space-y-2 mt-2">
-                            <li>✓ Fast storage for lightning-fast load times</li>
-                            <li>✓ Automatic WordPress core updates and security patches</li>
-                            <li>✓ 24/7 expert support and server monitoring</li>
-                            <li>✓ Unlimited bandwidth and website traffic</li>
-                            <li>✓ Free SSL certificate for your domain</li>
-                            <li>✓ Daily backups to protect your site's data</li>
+                        <ul class="mt-2 flex gap-4 flex-wrap justify-center" x-data="{liClass: 'bg-[#21759b]/30 rounded-md p-4 space-y-2 w-full sm:w-[calc(100%/2-.5rem)] md:w-[calc(100%/3-.75rem)] border border-slate-400 dark:border-slate-500'}">
+                            <li :class="liClass">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                                </svg>
+                                <div>Fast storage for lightning-fast load times</div>
+                            </li>
+
+                            <li :class="liClass">
+                                <svg class="size-6" role="img" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WordPress</title><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0"/></svg>                
+                                <div>Automatic WordPress core updates and security patches</div>
+                            </li>
+
+                            <li :class="liClass">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                                </svg>   
+                                <div>Expert support and server monitoring</div>
+                            </li>
+
+                            <li :class="liClass">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                                </svg>
+                                <div>Free SSL certificate for your domain</div>
+                            </li>
+
+                            <li :class="liClass">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                </svg>
+                                <div>Daily backups to protect for ease of mind</div>
+                            </li>
                         </ul>
                     </div>
+                </div>
 
+                <div class="space-y-8 pt-24">
                     <div>
                         <h5 class="text-xl font-medium">Hosting Pricing</h5>
                         <p class="mt-2">My WordPress hosting plans start at just <strong>$55/month</strong> per site.</p>
@@ -129,17 +175,17 @@
                             <li>✓ Transparent and competitive pricing, starting at $55/month</li>
                         </ul>
                     </div>
-                </div>
 
-                <p>If you're ready to take your WordPress website to the next level, <button type="button"
+                    <p>If you're ready to take your WordPress website to the next level, contact me here <button type="button"
                         class="inline-flex gap-2 items-center font-medium" @click="
                             if (location.protocol === 'https:') {
                                 $tooltip('Copied to clipboard')
                                 navigator.clipboard.writeText('hello@jonathanitzen.com')
                             }
                         ">
-                        let's get started!
-                    </button> I'm excited to work with you and help your business thrive online.</p>
+                        hello@jonathanitzen.com
+                    </button></p>
+                </div>
 
             </div>
         </section>
@@ -198,7 +244,6 @@
 
         anime
             .timeline({ loop: false })
-            .add({})
             .add({
                 targets: ".ml1 .letter",
                 scale: [0.3, 1],
