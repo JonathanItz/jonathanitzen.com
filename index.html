@@ -20,9 +20,9 @@
 
     <link rel="stylesheet" href="/assets/css/app.css">
 
-    <meta name="keywords" content="Jonathan Itzen">
+    <meta name="keywords" content="Des Moines web developer">
     <meta name="author" content="Jonathan Itzen">
-    <meta name="description" content="Website for Jonathan Itzen. Home of the best dev 😎">
+    <meta name="description" content="Website for Jonathan Itzen. Des Moines web design and hosting.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,6 +77,11 @@
         </button>
     </div>
 
+    <div class="fixed top-4 left-4 font-medium text-sm space-x-3">
+        <a class="hover:underline" href="/">Home</a>
+        <a class="hover:underline" href="/hosting">Hosting</a>
+    </div>
+
     <div class="px-4 pb-4 md:pb-32">
         <section class="mx-auto max-w-4xl pt-12">
             <h1 class="text-5xl font-thin text-center tracking-wider ml1">
@@ -105,21 +110,17 @@
 
                 <p>I'm Jon. Welcome to my website.</p>
 
-                <p>I'm a Senior PHP and WordPress Developer with over 7 years of professional experience.</p>
+                <p>I'm a PHP, WordPress, Laravel and VueJS Developer with over 7 years of professional experience.</p>
 
-                <p>Since 2017, I've worked at companies like Happy Medium and Kreg Tool to create fast, accessible,
-                    highly functional, and SEO-optimized websites using PHP and WordPress. Throughout my career, I've
-                    developed PHP applications and custom WordPress solutions that I'm proud to showcase. These projects
-                    demonstrate my expertise in creating efficient, scalable web solutions.</p>
+                <p>I've been working on the web since 2017. I was the web developer at Happy Medium and Kreg Tool Company.
+                    I've created and worked on applications like
+                    <a target="_blank" class="font-medium" href="https://www.kregtool.com">Kreg Tool</a>,
+                    <a target="_blank" class="font-medium" href="https://www.kregtool.com/academy">Kreg Academy</a> and
+                    <a target="_blank" class="font-medium" href="https://theartofeducation.edu/">The Art of Education University</a>.</p>
 
-                <p>While I'm proficient in various web technologies, my core strengths lie in PHP and WordPress
-                    development. I
-                    specialize in crafting custom themes and plugins, optimizing WordPress performance, and implementing
-                    complex
-                    functionalities to meet diverse client needs.</p>
+                <p>While I'm proficient in various web technologies, my core strengths lie in PHP, WordPress, Laravel and VueJS development.</p>
 
-                <p>I'm currently seeking new opportunities to apply my PHP and WordPress expertise to innovative
-                    projects. If you're
+                <p>I'm currently seeking new opportunities to apply my PHP and WordPress expertise to innovative projects. If you're
                     looking for a dedicated developer to bring your web ideas to life, let's connect! You can reach out
                     to me here, <button type="button" class="inline-flex gap-2 items-center font-medium" @click="
                         if (location.protocol === 'https:') {
@@ -132,6 +133,8 @@
                     <a href="https://www.linkedin.com/in/jonathan-itzen/" class="font-medium" target="_blank"
                         rel="noopener noreferrer">LinkedIn.</a>
                 </p>
+
+                <p>Need WordPress hosting? Check out my <a class="font-medium" href="/hosting">dedicated WordPress hosting solutions here</a></p>
 
             </div>
         </section>
@@ -628,6 +631,7 @@
 
         anime
             .timeline({ loop: false })
+            .add({})
             .add({
                 targets: ".ml1 .letter",
                 scale: [0.3, 1],
