@@ -14,7 +14,7 @@ document.addEventListener("alpine:init", () => {
     Alpine.data("skills", () => ({
         items: [
             { text: "PHP" },
-            { text: "NextJS / React" },
+            { text: "Vue / React / NextJS" },
             { text: "Salesforce Commerce Cloud" },
 
             { text: "WordPress" },
@@ -34,7 +34,7 @@ document.addEventListener("alpine:init", () => {
             { text: "WordPress" },
             { text: "MySQL" },
             { text: "Laravel" },
-            { text: "NextJS / React" },
+            { text: "Vue / React / NextJS" },
             { text: "AlpineJS / JavaScript / jQuery" },
             { text: "Livewire" },
             { text: "NodeJS" },
