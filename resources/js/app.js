@@ -17,16 +17,16 @@ document.addEventListener("alpine:init", () => {
             { text: "Vue / React / NextJS" },
             { text: "Salesforce Commerce Cloud" },
 
-            { text: "WordPress" },
-            { text: "AlpineJS / JavaScript / jQuery" },
+            { text: "NodeJS" },
+            { text: "JavaScript / AlpineJS / jQuery" },
             { text: "HTML / CSS / SASS / TailwindCSS" },
 
-            { text: "MySQL" },
-            { text: "Livewire" },
+            { text: "SQL" },
+            { text: "Drupal" },
             { text: "SEO" },
 
             { text: "Laravel" },
-            { text: "NodeJS" },
+            { text: "AWS" },
             { text: "VS Code" },
         ],
         itemsMobile: [
