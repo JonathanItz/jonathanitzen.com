@@ -1,2 +1,0 @@
-# jonathanitzen.com
-My Site 🙂

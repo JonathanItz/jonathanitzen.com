@@ -1,0 +1,11 @@
+{
+  "name": "Stars.js",
+  "short_name": "Stars.js",
+  "icons": [],
+  "lang": "en-US",
+  "start_url": "/",
+  "orientation": "portrait",
+  "display": "standalone",
+  "background_color": "white",
+  "theme_color": "white"
+}
